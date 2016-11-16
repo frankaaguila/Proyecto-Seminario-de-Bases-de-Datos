@@ -150,6 +150,10 @@ class VentanaRegistro(QDialog):
             self.registrado = True
             print(usuario,contrasenia,nombre,fecha_nac,telefono)
             c.execute("INSERT INTO Usuario(nombre_cuenta,contrasenia,nombre_usuario,fecha_nac,telefono) VALUES(?,?,?,?,?)",(usuario,contrasenia,nombre,fecha_nac,telefono))
+            c.execute("INSERT INTO Bandeja(clave_bandeja,nombre_bandeja) VALUES(?,?)",(0,"Principal"))
+            #c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,0))
+            c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,0))
+
             db.commit()
             db.close()
             mensaje = QMessageBox.information(self,"¡Felicidades!","Has completado el formulario de forma correcta")

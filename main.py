@@ -4,10 +4,10 @@ from PyQt5 import uic
 import sys
 from registry import VentanaRegistro
 from login import VentanaLogin
-from bandeja import VentanaBandejaPrincipal#, MenuBandeja
+from bandeja import VentanaBandejaPrincipal
+from tables import Tablas
 
-#Bandera para iniciar bandeja_clave
-#bandera
+
 
 class VentanaPrincipal(QMainWindow):
     #Método constructor de la clase
@@ -29,8 +29,9 @@ class VentanaPrincipal(QMainWindow):
           #Definir acciones de botones
           self.signup.clicked.connect(self.registry)
           self.login.clicked.connect(self.start)
-          self.bandera = False
 
+          #Bandera para iniciar bandeja_clave
+          self.bandera = False
 
     '''
     #Evento para cuando la ventana se cierra
@@ -56,13 +57,14 @@ class VentanaPrincipal(QMainWindow):
             self.bandera = True
             file = open("auth.txt",'w')
             texto = file.write("0")
-            print("ok")
             self.close()
-            print (self.bandera)
 
         else:
             self.close()
 
+#Inicializar las tablas de la Base de Datos
+tablas = Tablas()
+tablas.CrearTablas()
 #Instancia para iniciar una aplicación
 app = QApplication(sys.argv)
 #Crear un objeto de la clase VentanaPrincipal y Bandeja Principal
@@ -76,9 +78,8 @@ app.exec_()
 if (main.bandera == True):
     main.hide()
     mailbox.show()
-    print (main.bandera)
     #Ejecutar la aplicación
     sys.exit(app.exec_())
 else:
     main.show()
-    print (main.bandera)
+    sys.exit(app.exec_())

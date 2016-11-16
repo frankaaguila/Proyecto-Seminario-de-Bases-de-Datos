@@ -26,11 +26,13 @@ class VentanaLogin(QDialog):
           self.access.clicked.connect(self.ValidarLogueo)
           file = open("auth.txt",'w')
           texto = file.write("0")
+          self.nombreUsuario = ""
 
 
     def ValidarLogueo(self):
         usuario = self.user.text()
         passw = self.password.text()
+        self.nombreUsuario = "('" + usuario + "',)"
         auth = "('" + usuario + "', '" + passw + "')"
         flag = False
 
@@ -38,7 +40,6 @@ class VentanaLogin(QDialog):
 
         for u in usrlst:
             usr = str(u)
-            print (usr)
             if usr == auth:
                 flag = True
 
