@@ -89,6 +89,26 @@ color: #550000;
     <string>Contraseña</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>120</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 16px;
+color: #90140b;
+}</string>
+   </property>
+   <property name="text">
+    <string>@phimail.com</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

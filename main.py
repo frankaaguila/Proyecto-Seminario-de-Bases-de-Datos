@@ -49,7 +49,6 @@ class VentanaPrincipal(QMainWindow):
     def start(self):
         ent = VentanaLogin()
         ent.exec_()
-        #self.hide()
         file = open("auth.txt",'r')
         conf = int(file.read())
 
