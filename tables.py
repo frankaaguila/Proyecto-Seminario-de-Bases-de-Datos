@@ -24,5 +24,16 @@ class Tablas():
         #Crear Tabla Contacto-Correo si no existe
         c.execute("CREATE TABLE IF NOT EXISTS Contacto_Correo(correo_clave int, contacto_cl int, FOREIGN KEY(correo_clave) REFERENCES Correo(clave_correo), FOREIGN KEY(contacto_cl) REFERENCES Contacto(clave_contacto))")
 
+    def EliminarTablas(self):
+        c.execute("DROP TABLE Usuario")
+        c.execute("DROP TABLE Bandeja")
+        c.execute("DROP TABLE Papelera")
+        c.execute("DROP TABLE Correo")
+        c.execute("DROP TABLE Contacto")
+        c.execute("DROP TABLE Adjunto")
+        c.execute("DROP TABLE Usuario_Bandeja")
+        c.execute("DROP TABLE Usuario_Contacto")
+        c.execute("DROP TABLE Contacto_Correo")
+
 tab = Tablas()
 tab.CrearTablas()

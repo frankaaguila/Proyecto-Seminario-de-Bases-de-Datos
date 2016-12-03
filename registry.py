@@ -142,25 +142,64 @@ class VentanaRegistro(QDialog):
 
     def validarDatos(self):
         if (self.validarUsuario() and self.validarContrasenia() and self.validarConfirmacionContrasenia() and self.validarNombre()) and self.validarTelefono() and self.ValidarBD:
+            #Se asignan variables para introducirlas a la BD
             usuario = self.username.text()
             contrasenia = self.password.text()
             nombre = self.name.text()
             fecha_nac = self.birthday.date().toString("dd/MM/yyyy")
             telefono = self.phone.text()
             self.registrado = True
-            print(usuario,contrasenia,nombre,fecha_nac,telefono)
+            #Se realizan la inserción de los datos del usuario
             c.execute("INSERT INTO Usuario(nombre_cuenta,contrasenia,nombre_usuario,fecha_nac,telefono) VALUES(?,?,?,?,?)",(usuario,contrasenia,nombre,fecha_nac,telefono))
-            c.execute("INSERT INTO Bandeja(clave_bandeja,nombre_bandeja) VALUES(?,?)",(0,"Principal"))
-            #c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,0))
-            c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,0))
-
+            #Se realiza una búsqueda en la BD para obtener la clave de la bandeja que se creará
+            mailbox = c.execute("SELECT clave_bandeja FROM Bandeja")
+            j=0
+            for b in mailbox:
+                j = j + 1
+            #Se asigna el valor de j como clave de la bandeja del usuario
+            no_bandeja = j
+            #Se realizan las inserciones de las bandejas predeterminadas del usuario
+            c.execute("INSERT INTO Bandeja(clave_bandeja,nombre_bandeja) VALUES(?,?)",(no_bandeja,"Principal"))
+            c.execute("INSERT INTO Bandeja(clave_bandeja,nombre_bandeja) VALUES(?,?)",(no_bandeja + 1,"Borradores"))
+            c.execute("INSERT INTO Bandeja(clave_bandeja,nombre_bandeja) VALUES(?,?)",(no_bandeja + 2,"Enviados"))
+            c.execute("INSERT INTO Bandeja(clave_bandeja,nombre_bandeja) VALUES(?,?)",(no_bandeja + 3,"Eliminados"))
+            c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,no_bandeja))
+            c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,no_bandeja + 1))
+            c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,no_bandeja + 2))
+            c.execute("INSERT INTO Usuario_Bandeja(cuenta_nombre,bandeja_clave) VALUES(?,?)",(usuario,no_bandeja + 3))
+            #Se le asigna al usuario el contacto preestablecido como Admin 1
+            c.execute("INSERT INTO Usuario_Contacto(cuenta_n,contacto_clave) VALUES(?,?)",(usuario,0))
+            #Se realiza una búsqueda en la BD para obtener la clave de la Papelera que se creará
+            trash = c.execute("SELECT clave_papelera FROM Papelera")
+            i=0
+            for t in trash:
+                i = i + 1
+            #Se asigna el valor de i como clave de la papelera del usuario y se realiza la inserción
+            c.execute("INSERT INTO Papelera(clave_papelera,cantidad_correos,cuenta_nombre) VALUES(?,?,?)",(i,0,usuario))
+            #Se realiza una búsqueda en la BD para obtener la clave de la Clave que se creará
+            mail = c.execute("SELECT clave_correo FROM Correo")
+            k=0
+            for m in mail:
+                k = k + 1
+            #Se crean las variables para el correo
+            bienvenida = "¡Te damos la bienvenida a Phimail!"
+            asunto = "Bienvenido a Phimail"
+            fecha = "Hoy"
+            #Se inserta el mensaje de bienvenida en la BD, en la bandeja principal del usuario
+            c.execute("INSERT INTO Correo(clave_correo,cuerpo,asunto,estado,fecha,papelera_clave,bandeja_clave) VALUES(?,?,?,?,?,?,?)",(k,bienvenida,asunto,"enviado",fecha,i,no_bandeja))
+            #Se asigna al contacto Admin 1
+            c.execute("INSERT INTO Contacto_Correo(correo_clave,contacto_cl) VALUES(?,?)",(k,0))
+            #Se guarda la BD
             db.commit()
+            #Se cierra la BD
             db.close()
+            #Se envía al usuario un mensaje de confirmación
             mensaje = QMessageBox.information(self,"¡Felicidades!","Has completado el formulario de forma correcta")
             self.close()
         else:
             mensaje = QMessageBox.information(self,"¡Advertencia!","Existen campos incorrectos o vacíos")
 
+    #Evento que ocurre al cerrar la ventana
     def closeEvent(self, event):
         if self.registrado == False :
             resultado = QMessageBox.question(self, "¡Advertencia!", "¿Seguro que quieres salir? Todo el progreso será borrado", QMessageBox.Yes | QMessageBox.No)

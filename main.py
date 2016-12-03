@@ -30,16 +30,9 @@ class VentanaPrincipal(QMainWindow):
           self.signup.clicked.connect(self.registry)
           self.login.clicked.connect(self.start)
 
-          #Bandera para iniciar bandeja_clave
+          #Bandera para iniciar Ventana Bandeja Principal
           self.bandera = False
 
-    '''
-    #Evento para cuando la ventana se cierra
-    def closeEvent(self, event):
-        resultado = QMessageBox.question(self, "Salir ...", "¿Seguro que quieres salir de la aplicación?", QMessageBox.Yes | QMessageBox.No)
-        if (resultado == QMessageBox.Yes):  event.accept()
-        else: event.ignore()
-    '''
 
     def registry(self):
         #Mostra la ventana de registro
@@ -47,15 +40,20 @@ class VentanaPrincipal(QMainWindow):
         reg.exec_()
 
     def start(self):
+        #Mostar la ventana de logeo
         ent = VentanaLogin()
         ent.exec_()
+        #Se accede al archivo para verificar la autentifiación
         file = open("auth.txt",'r')
         conf = int(file.read())
-
+        #Si existe un 1 en el archivo, se accederá
         if conf == 1:
+            #La vandera indica que se debe iniciar la VentanaBandejaPrincipal
             self.bandera = True
+            #Se devuelve el valor del archivo a 0
             file = open("auth.txt",'w')
             texto = file.write("0")
+            #Se cierra la VentanaPrincipal
             self.close()
 
         else:
@@ -66,16 +64,20 @@ tablas = Tablas()
 tablas.CrearTablas()
 #Instancia para iniciar una aplicación
 app = QApplication(sys.argv)
-#Crear un objeto de la clase VentanaPrincipal y Bandeja Principal
+#Crear un objeto de la clase VentanaPrincipal
 main = VentanaPrincipal()
-mailbox = VentanaBandejaPrincipal()
-#Mostra la ventana
+
+#Mostra la VentanaPrincipal
 main.show()
 #Ejecutar la aplicación
 app.exec_()
 #Comprobar bandera
 if (main.bandera == True):
+    #Crear un objeto de la clase VentanaBandejaPrincipal
+    mailbox = VentanaBandejaPrincipal()
+    #Ocultar VentanaPrincipal
     main.hide()
+    #Mostrar VentanaBandejaPrincipal
     mailbox.show()
     #Ejecutar la aplicación
     sys.exit(app.exec_())

@@ -24,31 +24,50 @@ class VentanaLogin(QDialog):
           self.setWindowTitle("Iniciar Sesión")
           #Acción cuando se valida la entrada
           self.access.clicked.connect(self.ValidarLogueo)
+          #Inicializar archivo de Autentificación
           file = open("auth.txt",'w')
           texto = file.write("0")
+          #Se crea una variable con el nombre del usuario, se inicializa vacía
           self.nombreUsuario = ""
 
-
     def ValidarLogueo(self):
+        file = open("auth.txt",'w')
+        texto = file.write("0")
+        #Inicializar archivo con el nombre de usuario
+        file = open("usrn.txt",'w')
+        texto = file.write("")
+        #Se tomar los datos ingresados por el usuario
         usuario = self.user.text()
         passw = self.password.text()
-        self.nombreUsuario = "('" + usuario + "',)"
+        #La variable auth se comparará con los datos del usuario en la base de datos
         auth = "('" + usuario + "', '" + passw + "')"
+        #Se crea una bandera para la autentificación, se inicializa en falso
         flag = False
 
+        #Se ejecuta la búsqueda en la base de datos
         usrlst = c.execute("SELECT nombre_cuenta,contrasenia FROM Usuario WHERE nombre_cuenta=:id", {"id": usuario})
 
         for u in usrlst:
             usr = str(u)
+            #Si la autentificación coincide la bandera es verdadera
             if usr == auth:
                 flag = True
-
+        #Condición para conceder acceso con la bandera
         if flag == True:
+            #Se asigna el nombre de la variable usuario para ingresarla en el archivo usrn.txt
+            self.nombreUsuario = usuario
+            #Se envía mensaje de confirmación
             mensaje = QMessageBox.information(self,"Correcto","Acceso concedido")
+            #Se escribe un 1 en el archivo indicando que se ha accedido correctamente
             file = open("auth.txt",'w')
             texto = file.write("1")
+            #Se escribe en el archivo el nombre del usuario
+            file = open("usrn.txt",'w')
+            texto = file.write(self.nombreUsuario)
+            #Se cierra la ventana
             self.close()
         else:
             mensaje = QMessageBox.information(self,"¡Error!","Usuario o contraseña incorrectos. Verifique los datos")
+            self.password.clear()
 
         return flag

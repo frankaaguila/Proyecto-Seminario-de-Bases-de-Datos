@@ -47,14 +47,26 @@
       <height>261</height>
      </rect>
     </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::WheelFocus</enum>
+    </property>
     <property name="selectionMode">
-     <enum>QAbstractItemView::MultiSelection</enum>
+     <enum>QAbstractItemView::ExtendedSelection</enum>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::ListMode</enum>
     </property>
     <property name="currentRow">
      <number>-1</number>
     </property>
    </widget>
-   <widget class="QListWidget" name="previousView">
+   <widget class="QListWidget" name="contacts">
     <property name="geometry">
      <rect>
       <x>590</x>
@@ -170,7 +182,7 @@ color: #550000;
     </column>
     <column>
      <property name="text">
-      <string>Título</string>
+      <string>Asunto</string>
      </property>
      <property name="font">
       <font>
@@ -196,8 +208,8 @@ color: #550000;
      <rect>
       <x>690</x>
       <y>10</y>
-      <width>47</width>
-      <height>13</height>
+      <width>101</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
