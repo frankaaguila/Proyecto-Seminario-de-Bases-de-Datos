@@ -81,7 +81,7 @@
     <string>Dirección de correo:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="mailAdress">
+  <widget class="QLineEdit" name="mailAddress">
    <property name="geometry">
     <rect>
      <x>10</x>
