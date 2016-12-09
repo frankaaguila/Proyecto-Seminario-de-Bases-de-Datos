@@ -42,7 +42,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>40</y>
       <width>141</width>
       <height>261</height>
      </rect>
@@ -82,8 +82,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
+      <x>20</x>
+      <y>0</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -103,7 +103,7 @@ color: #550000;
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>20</y>
+      <y>0</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -143,7 +143,7 @@ color: #550000;
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>60</y>
+      <y>40</y>
       <width>421</width>
       <height>261</height>
      </rect>
@@ -216,6 +216,19 @@ color: #550000;
      <string>User</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="refresh">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>320</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Actualizar</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menuBar">
@@ -227,37 +240,6 @@ color: #550000;
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuArchivo">
-    <property name="title">
-     <string>Archivo</string>
-    </property>
-    <widget class="QMenu" name="menuNuevo">
-     <property name="title">
-      <string>Nuevo</string>
-     </property>
-     <addaction name="actionCorreo"/>
-     <addaction name="actionContacto"/>
-     <addaction name="actionBandeja_de_Correo"/>
-    </widget>
-    <addaction name="menuNuevo"/>
-    <addaction name="separator"/>
-    <addaction name="actionSalir"/>
-   </widget>
-   <widget class="QMenu" name="menuCuenta">
-    <property name="title">
-     <string>Cuenta</string>
-    </property>
-    <addaction name="actionModificar_informaci_n_de_cuenta"/>
-   </widget>
-   <widget class="QMenu" name="menuAyuda">
-    <property name="title">
-     <string>Ayuda</string>
-    </property>
-    <addaction name="actionInformaci_n"/>
-   </widget>
-   <addaction name="menuArchivo"/>
-   <addaction name="menuCuenta"/>
-   <addaction name="menuAyuda"/>
   </widget>
   <action name="actionCorreo">
    <property name="text">

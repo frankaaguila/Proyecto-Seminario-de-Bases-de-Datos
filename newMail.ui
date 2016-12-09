@@ -24,38 +24,12 @@
     <rect>
      <x>10</x>
      <y>30</y>
-     <width>381</width>
+     <width>311</width>
      <height>20</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Para:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Asunto:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="origin">
+  <widget class="QLineEdit" name="title">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -69,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>340</y>
+     <y>310</y>
      <width>91</width>
      <height>23</height>
     </rect>
@@ -84,7 +58,7 @@
   <widget class="QPushButton" name="saveToDrafts">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>10</x>
      <y>340</y>
      <width>121</width>
      <height>23</height>
@@ -97,11 +71,11 @@
     <string>Guardar en borradores</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Exit">
+  <widget class="QPushButton" name="exit">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>340</y>
+     <x>150</x>
+     <y>330</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -113,17 +87,89 @@
     <string>Descartar</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="cuerpo">
+  <widget class="QTextEdit" name="body">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>110</y>
      <width>381</width>
-     <height>221</height>
+     <height>191</height>
     </rect>
    </property>
    <property name="cursor" stdset="0">
     <cursorShape>IBeamCursor</cursorShape>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="contact">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>30</y>
+     <width>61</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string>Contacto</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Para :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Asunto :</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="send">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>320</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string>Enviar</string>
    </property>
   </widget>
  </widget>

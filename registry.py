@@ -176,7 +176,7 @@ class VentanaRegistro(QDialog):
                 i = i + 1
             #Se asigna el valor de i como clave de la papelera del usuario y se realiza la inserción
             c.execute("INSERT INTO Papelera(clave_papelera,cantidad_correos,cuenta_nombre) VALUES(?,?,?)",(i,0,usuario))
-            #Se realiza una búsqueda en la BD para obtener la clave de la Clave que se creará
+            #Se realiza una búsqueda en la BD para obtener la clave del Correo que se creará
             mail = c.execute("SELECT clave_correo FROM Correo")
             k=0
             for m in mail:

@@ -6,24 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>255</width>
-    <height>200</height>
+    <width>250</width>
+    <height>275</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>250</width>
+    <height>275</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>255</width>
-    <height>200</height>
+    <width>250</width>
+    <height>275</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="title">
+  <widget class="QLabel" name="name">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>40</y>
      <width>211</width>
      <height>21</height>
     </rect>
@@ -38,14 +44,14 @@
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>Nombre</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="title_2">
+  <widget class="QLabel" name="surname">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>50</y>
+     <y>90</y>
      <width>211</width>
      <height>21</height>
     </rect>
@@ -60,14 +66,14 @@
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>Apellido</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="title_3">
+  <widget class="QLabel" name="mail">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
+     <y>140</y>
      <width>211</width>
      <height>21</height>
     </rect>
@@ -82,14 +88,14 @@
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>Correo</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="sendNew">
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>110</y>
+     <y>180</y>
      <width>121</width>
      <height>23</height>
     </rect>
@@ -98,14 +104,14 @@
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="text">
-    <string>Enivar nuevo correo</string>
+    <string>Enviar nuevo correo</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="sendNew_2">
+  <widget class="QPushButton" name="modify">
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>140</y>
+     <y>210</y>
      <width>121</width>
      <height>23</height>
     </rect>
@@ -117,11 +123,11 @@
     <string>Modificar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="sendNew_3">
+  <widget class="QPushButton" name="delete_2">
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>170</y>
+     <y>240</y>
      <width>121</width>
      <height>23</height>
     </rect>
@@ -131,6 +137,66 @@
    </property>
    <property name="text">
     <string>Eliminar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Nombre :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Apellido :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Correo :</string>
    </property>
   </widget>
  </widget>

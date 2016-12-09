@@ -7,13 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>370</height>
+    <height>400</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>400</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>370</height>
+    <height>400</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -23,7 +29,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>60</y>
      <width>381</width>
      <height>21</height>
     </rect>
@@ -38,7 +44,7 @@
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>Título</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="response">
@@ -109,6 +115,56 @@
    <property name="geometry">
     <rect>
      <x>10</x>
+     <y>160</y>
+     <width>381</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="file">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>271</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>IBeamCursor</cursorShape>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="date">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
      <y>110</y>
      <width>381</width>
      <height>21</height>
@@ -124,69 +180,19 @@
     <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>Remitente</string>
+    <string/>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="file">
+  <widget class="QTextEdit" name="body">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>140</y>
+     <y>240</y>
      <width>381</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>IBeamCursor</cursorShape>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <property name="text">
-    <string>Adjunto</string>
-   </property>
-   <property name="textFormat">
-    <enum>Qt::AutoText</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="date">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>381</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>IBeamCursor</cursorShape>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <property name="text">
-    <string>Fecha</string>
-   </property>
-   <property name="textFormat">
-    <enum>Qt::AutoText</enum>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="cuerpo">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>381</width>
-     <height>191</height>
+     <height>151</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -197,7 +203,100 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cuerpo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Asunto :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Fecha :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Remitente :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+font-family: Trajan Pro;
+font-size: 15px;
+color: #550000;
+}</string>
+   </property>
+   <property name="text">
+    <string>Adjunto :</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="downloadFile">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>200</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Descargar adjunto</string>
    </property>
   </widget>
  </widget>
